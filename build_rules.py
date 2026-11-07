@@ -1,4 +1,4 @@
-"""Generate consolidated public-health masking rules (v2) and synthetic tests.
+"""Generate consolidated public-health masking rules (v2.1) and synthetic tests.
 
 field() builds one capturing rule from a label alternation; add() takes a
 complete pattern that must itself contain exactly one capturing group.
@@ -13,7 +13,7 @@ def add(kind, regex, text, value, desc):
     descriptions.append((kind, desc))
 # Kind map: PH_PII=身份与联系 PH_MED=业务编号 PH_PLACE=地点与场所 PH_TIME=时间
 #           PH_DEMO=人口学特征 PH_NET=网络标识 PH_DX=疾病诊断
-sep = r'''["'”’]?[ \t]*[:：=][ \t]*["'“‘]?'''
+sep = r'''["'”’*]?[ \t]*(?:[:：=]|\|)[ \t]*["'“‘]?'''
 value = r'''([^\r\n\t,，;；。|"'“”‘’<>\[\]{}]{1,100})'''
 def field(kind, labels, text, val, desc):
     add(kind, '(?i)(?:'+labels+')'+sep+value, text, val, desc)
@@ -24,6 +24,10 @@ add('PH_PII',r'(?:^|[^0-9])(0[0-9]{2,3}[ -][0-9]{7,8}(?:[-转][0-9]{1,6})?)(?:$|
 add('PH_PII',r'(?i)(?:^|[^0-9A-Za-z])([1-9][0-9]{16}[0-9X]|[1-9][0-9]{14})(?:$|[^0-9A-Za-z])','证件 110101199001010019。','110101199001010019','15/18位证件号形状兜底（不校验位），可能误遮长编号')
 # --- 业务编号 ---
 field('PH_MED','报告卡号|病例编号|个案编号|传报卡号|病案号|住院号|门诊号|就诊卡号|医保号|标本号|样本号|疫情编号|事件编号|密接编号|监测点编号','报告卡号：CDC-TEST-0098；','CDC-TEST-0098','传报卡/病案/标本/疫情事件/监测点编号字段')
+# --- 监测字段补充：不依赖TEST等特定样例前缀 ---
+field('PH_MED','送检编号|检验编号|检测编号|条码号|项目编号|任务编号|数据集编号|数据集名称|数据集名|样本编号','送检编号：DEMO-SEND-0317-021；','DEMO-SEND-0317-021','送检/检验/条码/项目/任务/数据集名称及编号')
+field('PH_PLACE','监测任务名称|监测任务名|项目名称|监测项目名称|课题名称|任务名称','监测任务名称：虚构市学校呼吸道联合监测；','虚构市学校呼吸道联合监测','完整任务/项目名称，避免只遮住地名')
+field('PH_MED','case_id|report_id|patient_id|specimen_id|sample_id|project_id|dataset_name|dataset_id','sample_id: DEMO-LAB-009；','DEMO-LAB-009','英文键值业务编号及数据集名；无表头关联推理')
 # --- 地点与场所 ---
 field('PH_PLACE','现住址|户籍地址|家庭住址|详细地址|居住地|工作单位|就读学校|单位名称|学校名称|就诊医院|隔离点|报告单位|送检单位|检测机构|监测点','报告单位：虚构市示例疾控中心；','虚构市示例疾控中心','地址/单位/医院/报告单位/送检单位/监测点等字段（含监测报告新增字段）')
 field('PH_PLACE','班级|宿舍|床位号|病房号|门牌号|房间号|座位号|车厢','班级：二年级三班；','二年级三班','班级/宿舍/床位/房间等细粒度位置字段')
@@ -45,12 +49,20 @@ add('PH_DEMO',r'([0-9]{1,3}(?:周岁|岁|月龄|日龄))','患者37岁，发热'
 add('PH_DX',r'(鼠疫|霍乱|传染性非典型肺炎|人感染高致病性禽流感|人感染H7N9禽流感|流行性出血热|流行性乙型脑炎|流行性脑脊髓膜炎|新生儿破伤风|布鲁氏菌病|钩端螺旋体病|感染性腹泻病|急性出血性结膜炎|流行性腮腺炎)','确诊流行性乙型脑炎一例','流行性乙型脑炎','法定传染病病名（甲类及长名乙类/丙类）')
 add('PH_DX',r'(艾滋病|病毒性肝炎|脊髓灰质炎|狂犬病|登革热|炭疽|细菌性痢疾|阿米巴性痢疾|肺结核|副伤寒|伤寒|百日咳|白喉|猩红热|淋病|梅毒|血吸虫病|疟疾)','肺结核确诊','肺结核','法定传染病病名（常见乙类）')
 add('PH_DX',r'(猴痘|新冠病毒感染|新冠肺炎|新冠|禽流感|流行性感冒|流感|风疹|麻风病|斑疹伤寒|黑热病|包虫病|丝虫病|手足口病)','新冠核酸检测阳性','新冠','法定传染病病名（丙类及现行重点监测病名）')
+# Screenshot regression: table rows and monitoring metadata, all synthetic.
+for label,val in [('病例编号','DEMO-P001'),('报告卡号','DEMO-REPORT-0318-001'),('病案号','DEMO-MR-0318-001'),('标本号','DEMO-SP-0318-001'),('送检编号','DEMO-SEND-0317-021'),('检验编号','DEMO-PCR-0318-006'),('条码号','DEMO-BARCODE-000021'),('项目编号','DEMO-PROJECT-RESP-2025'),('数据集名称','DEMO_SCHOOL_RESP_WEEKLY')]:
+    for text in [f'{label}：{val}',f'| {label} | {val} |',f'"{label}": "{val}"']:
+        cases.append(dict(kind='PH_MED',text=text,value=val))
+for text in ['监测任务名称：示例地区学校呼吸道症状与病原检测联合监测','| 监测任务名称 | 示例地区学校呼吸道症状与病原检测联合监测 |']:
+    cases.append(dict(kind='PH_PLACE',text=text,value='示例地区学校呼吸道症状与病原检测联合监测'))
+for label,val in [('民族','汉族'),('职业','学生')]:
+    cases.append(dict(kind='PH_DEMO',text=f'| {label} | {val} |',value=val))
 patch={'redact':True,'redactPersonal':True,'redactModel':True,'redactModelOff':False,'redactWordsAnyCase':True,'redactRules':rules}
 (P/'strict-settings.patch.json').write_text(json.dumps(patch,ensure_ascii=False,indent=2)+'\n')
 neg=['体温38.5℃，Ct值23.4，白细胞6.5×10^9/L。','发热、咳嗽，核酸阳性，潜伏期3天。','病例P001与P002有同餐史；D0发病，D2隔离。','监测数据显示本周报告数上升，正在核实传播链。']
 (P/'synthetic-tests.json').write_text(json.dumps({'positive':cases,'negative':neg},ensure_ascii=False,indent=2)+'\n')
 kinds=['PH_PII=身份与联系','PH_MED=业务编号','PH_PLACE=地点与场所','PH_TIME=时间','PH_DEMO=人口学特征','PH_NET=网络标识','PH_DX=疾病诊断']
-rows=['# 规则明细（v2 收敛版）\n',f'共{len(rules)}条规则，收敛为{len(kinds)}个占位符类型：'+'；'.join(kinds)+f'。余{32-len(rules)}个自定义名额。\n','注：Magpie 占位符类型名只接受大写字母/数字/下划线（源码 RuleKind 会剔除中文字符），故类型用英文短名，此处给出中文对照。\n','|类型|用途及局限|测试输入|预期命中值|','|---|---|---|---|']
+rows=['# 规则明细（v2.1 表格与监测字段修复版）\n',f'共{len(rules)}条规则，收敛为{len(kinds)}个占位符类型：'+'；'.join(kinds)+f'。余{32-len(rules)}个自定义名额。\n','注：Magpie 占位符类型名只接受大写字母/数字/下划线（源码 RuleKind 会剔除中文字符），故类型用英文短名，此处给出中文对照。\n','|类型|用途及局限|测试输入|预期命中值|','|---|---|---|---|']
 for (k,d),c in zip(descriptions,cases): rows.append(f'|{k}|{d}|{c["text"]}|{c["value"]}|')
 (P/'规则明细.md').write_text('\n'.join(rows)+'\n')
 print(f'{len(rules)} rules, {len(kinds)} kinds; max regex bytes: {max(len(r["regex"].encode()) for r in rules)}')

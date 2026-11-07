@@ -1,0 +1,24 @@
+{
+  "redact": true,
+  "redactPersonal": true,
+  "redactWordsAnyCase": true,
+  "redactWords": [
+    "虚构星河小学",
+    "示例食品公司"
+  ],
+  "redactRules": [
+    {
+      "kind": "PH_NAME",
+      "regex": "(?i)(?:姓名|患者姓名|联系人|监护人|调查员|签名|patient_name|full_name)[\"'”’]?[ \\t]*[:：=][ \\t]*[\"'“‘]?([^\\r\\n\\t,，;；。|\"'“”‘’<>\\[\\]{}]{1,100})"
+    },
+    {
+      "kind": "PH_ID",
+      "regex": "(?i)(?:身份证号?|证件号|护照号|通行证号|id_number|passport)[\"'”’]?[ \\t]*[:：=][ \\t]*[\"'“‘]?([^\\r\\n\\t,，;；。|\"'“”‘’<>\\[\\]{}]{1,100})"
+    },
+    {
+      "kind": "PH_CONTACT",
+      "regex": "(?i)(?:电话|手机|联系方式|微信号?|QQ号?|contact|phone)[\"'”’]?[ \\t]*[:：=][ \\t]*[\"'“‘]?([^\\r\\n\\t,，;；。|\"'“”‘’<>\\[\\]{}]{1,100})"
+    }
+  ],
+  "note": "其余 25 条规则同 strict-settings.patch.json；配置文件保留你现有的其余设置。"
+}

@@ -1,0 +1,149 @@
+{
+  "positive": [
+    {
+      "kind": "PH_NAME",
+      "text": "患者姓名：林晓岚；发热",
+      "value": "林晓岚"
+    },
+    {
+      "kind": "PH_ID",
+      "text": "证件号：TEST998877；",
+      "value": "TEST998877"
+    },
+    {
+      "kind": "PH_CONTACT",
+      "text": "联系方式：0571-12345678；",
+      "value": "0571-12345678"
+    },
+    {
+      "kind": "PH_CASE",
+      "text": "报告卡号：CDC-TEST-0098；",
+      "value": "CDC-TEST-0098"
+    },
+    {
+      "kind": "PH_MEDICAL",
+      "text": "病案号：MR-TEST-001；",
+      "value": "MR-TEST-001"
+    },
+    {
+      "kind": "PH_SAMPLE",
+      "text": "标本号：LAB-TEST-008；",
+      "value": "LAB-TEST-008"
+    },
+    {
+      "kind": "PH_ADDRESS",
+      "text": "现住址：虚构市示例路88号3栋502室；",
+      "value": "虚构市示例路88号3栋502室"
+    },
+    {
+      "kind": "PH_ORG",
+      "text": "工作单位：虚构市示例食品公司；",
+      "value": "虚构市示例食品公司"
+    },
+    {
+      "kind": "PH_ROOM",
+      "text": "班级：二年级三班；",
+      "value": "二年级三班"
+    },
+    {
+      "kind": "PH_TRANSPORT",
+      "text": "航班号：ZZ9999；",
+      "value": "ZZ9999"
+    },
+    {
+      "kind": "PH_COORD",
+      "text": "经度：120.123456；",
+      "value": "120.123456"
+    },
+    {
+      "kind": "PH_ACCOUNT",
+      "text": "账号：TEST-ACCOUNT-987；",
+      "value": "TEST-ACCOUNT-987"
+    },
+    {
+      "kind": "PH_SECRET",
+      "text": "密码：DEMO_PASSWORD_NOT_REAL；",
+      "value": "DEMO_PASSWORD_NOT_REAL"
+    },
+    {
+      "kind": "PH_DEMOGRAPHIC",
+      "text": "职业：示例精密仪器工程师；",
+      "value": "示例精密仪器工程师"
+    },
+    {
+      "kind": "PH_EVENT",
+      "text": "事件编号：EVENT-TEST-88；",
+      "value": "EVENT-TEST-88"
+    },
+    {
+      "kind": "PH_MOBILE",
+      "text": "电话 139 0000 1234。",
+      "value": "139 0000 1234"
+    },
+    {
+      "kind": "PH_LANDLINE",
+      "text": "致电 0571-12345678。",
+      "value": "0571-12345678"
+    },
+    {
+      "kind": "PH_ID_SHAPE",
+      "text": "证件 110101199001010019。",
+      "value": "110101199001010019"
+    },
+    {
+      "kind": "PH_DATE",
+      "text": "发病于2026年11月3日。",
+      "value": "2026年11月3日"
+    },
+    {
+      "kind": "PH_MONTHDAY",
+      "text": "于11月3日采样",
+      "value": "11月3日"
+    },
+    {
+      "kind": "PH_TIME",
+      "text": "于14:32采样",
+      "value": "14:32"
+    },
+    {
+      "kind": "PH_AGE_TEXT",
+      "text": "患者37岁，发热",
+      "value": "37岁"
+    },
+    {
+      "kind": "PH_LOCATION_TEXT",
+      "text": "到访虚构市示例区。",
+      "value": "到访虚构市示例区"
+    },
+    {
+      "kind": "PH_ORG_TEXT",
+      "text": "虚构星河小学发生疫情",
+      "value": "虚构星河小学"
+    },
+    {
+      "kind": "PH_ROOM_TEXT",
+      "text": "居住3栋502室。",
+      "value": "502室"
+    },
+    {
+      "kind": "PH_PLATE",
+      "text": "车辆浙A12345进入现场",
+      "value": "浙A12345"
+    },
+    {
+      "kind": "PH_NETWORK",
+      "text": "内网 10.20.30.40。",
+      "value": "10.20.30.40"
+    },
+    {
+      "kind": "PH_COORD_PAIR",
+      "text": "位置120.123456,30.123456",
+      "value": "120.123456,30.123456"
+    }
+  ],
+  "negative": [
+    "体温38.5℃，Ct值23.4，白细胞6.5×10^9/L。",
+    "发热、咳嗽，核酸阳性，潜伏期3天。",
+    "病例P001与P002有同餐史；D0发病，D2隔离。"
+  ]
+}

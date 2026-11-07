@@ -14,7 +14,7 @@ for r in rules:
     compiled.setdefault(r['kind'],[]).append(c)
 fail=[]
 for t in tests['positive']:
-    hits=[m.group(1) for c in compiled[t['kind']] for m in c.finditer(t['text']) if len(m.group(1).encode())>=4]
+    hits=[m.group(1).strip() for c in compiled[t['kind']] for m in c.finditer(t['text']) if len(m.group(1).encode())>=4]
     if t['value'] not in hits: fail.append({'case':t,'actual':hits})
 for text in tests['negative']:
     for rules_of_kind in compiled.values():

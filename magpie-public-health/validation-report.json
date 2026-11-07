@@ -1,0 +1,8 @@
+{
+  "rule_count": 28,
+  "max_regex_bytes": 184,
+  "positive_cases": 28,
+  "negative_texts": 3,
+  "failures": [],
+  "scope": "Google RE2 syntax and custom-rule isolated matching only; not Go full engine, AstrLink inference or Magpie end-to-end; no clinical recall estimate."
+}

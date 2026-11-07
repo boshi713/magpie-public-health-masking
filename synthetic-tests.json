@@ -26,6 +26,21 @@
       "value": "CDC-TEST-0098"
     },
     {
+      "kind": "PH_MED",
+      "text": "送检编号：DEMO-SEND-0317-021；",
+      "value": "DEMO-SEND-0317-021"
+    },
+    {
+      "kind": "PH_PLACE",
+      "text": "监测任务名称：虚构市学校呼吸道联合监测；",
+      "value": "虚构市学校呼吸道联合监测"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "sample_id: DEMO-LAB-009；",
+      "value": "DEMO-LAB-009"
+    },
+    {
       "kind": "PH_PLACE",
       "text": "报告单位：虚构市示例疾控中心；",
       "value": "虚构市示例疾控中心"
@@ -104,6 +119,161 @@
       "kind": "PH_DX",
       "text": "新冠核酸检测阳性",
       "value": "新冠"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "病例编号：DEMO-P001",
+      "value": "DEMO-P001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 病例编号 | DEMO-P001 |",
+      "value": "DEMO-P001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"病例编号\": \"DEMO-P001\"",
+      "value": "DEMO-P001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "报告卡号：DEMO-REPORT-0318-001",
+      "value": "DEMO-REPORT-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 报告卡号 | DEMO-REPORT-0318-001 |",
+      "value": "DEMO-REPORT-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"报告卡号\": \"DEMO-REPORT-0318-001\"",
+      "value": "DEMO-REPORT-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "病案号：DEMO-MR-0318-001",
+      "value": "DEMO-MR-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 病案号 | DEMO-MR-0318-001 |",
+      "value": "DEMO-MR-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"病案号\": \"DEMO-MR-0318-001\"",
+      "value": "DEMO-MR-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "标本号：DEMO-SP-0318-001",
+      "value": "DEMO-SP-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 标本号 | DEMO-SP-0318-001 |",
+      "value": "DEMO-SP-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"标本号\": \"DEMO-SP-0318-001\"",
+      "value": "DEMO-SP-0318-001"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "送检编号：DEMO-SEND-0317-021",
+      "value": "DEMO-SEND-0317-021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 送检编号 | DEMO-SEND-0317-021 |",
+      "value": "DEMO-SEND-0317-021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"送检编号\": \"DEMO-SEND-0317-021\"",
+      "value": "DEMO-SEND-0317-021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "检验编号：DEMO-PCR-0318-006",
+      "value": "DEMO-PCR-0318-006"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 检验编号 | DEMO-PCR-0318-006 |",
+      "value": "DEMO-PCR-0318-006"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"检验编号\": \"DEMO-PCR-0318-006\"",
+      "value": "DEMO-PCR-0318-006"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "条码号：DEMO-BARCODE-000021",
+      "value": "DEMO-BARCODE-000021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 条码号 | DEMO-BARCODE-000021 |",
+      "value": "DEMO-BARCODE-000021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"条码号\": \"DEMO-BARCODE-000021\"",
+      "value": "DEMO-BARCODE-000021"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "项目编号：DEMO-PROJECT-RESP-2025",
+      "value": "DEMO-PROJECT-RESP-2025"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 项目编号 | DEMO-PROJECT-RESP-2025 |",
+      "value": "DEMO-PROJECT-RESP-2025"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"项目编号\": \"DEMO-PROJECT-RESP-2025\"",
+      "value": "DEMO-PROJECT-RESP-2025"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "数据集名称：DEMO_SCHOOL_RESP_WEEKLY",
+      "value": "DEMO_SCHOOL_RESP_WEEKLY"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "| 数据集名称 | DEMO_SCHOOL_RESP_WEEKLY |",
+      "value": "DEMO_SCHOOL_RESP_WEEKLY"
+    },
+    {
+      "kind": "PH_MED",
+      "text": "\"数据集名称\": \"DEMO_SCHOOL_RESP_WEEKLY\"",
+      "value": "DEMO_SCHOOL_RESP_WEEKLY"
+    },
+    {
+      "kind": "PH_PLACE",
+      "text": "监测任务名称：示例地区学校呼吸道症状与病原检测联合监测",
+      "value": "示例地区学校呼吸道症状与病原检测联合监测"
+    },
+    {
+      "kind": "PH_PLACE",
+      "text": "| 监测任务名称 | 示例地区学校呼吸道症状与病原检测联合监测 |",
+      "value": "示例地区学校呼吸道症状与病原检测联合监测"
+    },
+    {
+      "kind": "PH_DEMO",
+      "text": "| 民族 | 汉族 |",
+      "value": "汉族"
+    },
+    {
+      "kind": "PH_DEMO",
+      "text": "| 职业 | 学生 |",
+      "value": "学生"
     }
   ],
   "negative": [
