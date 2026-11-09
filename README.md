@@ -30,13 +30,13 @@ AI 回复时，占位符会自动换回真实内容，所以你看到的报告�
 ## 第 1 步：安装 Magpie
 
 ### macOS
-1. 打开 <https://github.com/boshi713/magpie-public-health-masking)，下载 macOS 版。
+1. 打开 <https://usemagpie.ai/download>，下载 macOS 版。
 2. 把 Magpie 拖进"应用程序"文件夹，打开它。
 3. 第一次打开会提示"来自互联网下载的 App"，点"打开"。
 4. 屏幕右上角菜单栏出现一只喜鹊图标，说明装好了。
 
 ### Windows
-1. 打开 <https://github.com/boshi713/magpie-public-health-masking)，下载 Windows 版（.exe 安装包）。
+1. 打开 <https://usemagpie.ai/download>，下载 Windows 版（.exe 安装包）。
 2. 双击安装，一路"下一步"。
 3. 装好后，屏幕右下角托盘区出现喜鹊图标（可能要点小箭头展开才能看到）。
 
@@ -220,11 +220,11 @@ Magpie 的自定义规则会忽略少于 4 个字节的命中值，单个汉字�
 
 ## 附录：给单位 IT 支持人员
 
-- 规则库源码与更新：<https://github.com/boshi713/magpie-public-health-masking)
+- 规则库源码与更新：<https://usemagpie.ai/download>
 - 技术验证：24 条规则全部通过 RE2 语法与 Magpie 长度限制（≤32 条、每条 ≤300 字节）；55 个正例与 4 段应保留文本回归通过
 - 合并脚本 `merge_settings.py` 只生成新文件、不修改原配置，输出权限 0600
 - 规则类型名受 Magpie 限制只能用大写英文（见 `规则明细.md`）
-- 上游依据：[Magpie 脱敏文档](https://usemagpie.ai/docs/masking)、[规则结构源码](https://github.com/yetone/magpie/blob/main/internal/redact/rules.go)
+- 上游依据：[Magpie 脱敏文档](https://usemagpie.ai/docs
 
 ---
 
